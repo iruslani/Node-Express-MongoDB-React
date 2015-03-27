@@ -1,0 +1,21 @@
+{
+  "name": "node-express-mongodb",
+  "version": "1.0.0",
+  "description": "Just a simple node app with express and mongodb stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "express.js",
+    "and",
+    "mongodb"
+  ],
+  "author": "Iwan Ruslani",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3",
+    "mongoose": "^4.0.0"
+  }
+}
