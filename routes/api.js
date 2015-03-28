@@ -56,6 +56,27 @@ router.get('/jobs', function(req, res){
 		if (err) res.send(err);
 		res.send({message: "Job created"});
 	});
+})
+.put('/jobs/edit/:job_id', function(req, res) {
+    Jobs.findOne({_id: req.params.job_id}, function(err, jobs) {
+		jobs.title = req.body.title;
+		jobs.description = req.body.description;
+		jobs.company = req.body.company;
+
+        jobs.save(function(err) {
+            if (err)
+                res.send(err);
+            res.send({message: "Job updated"});
+        });
+
+    });
+})
+.delete('/jobs/delete/:job_id', function (req, res) {
+    Jobs.remove({_id: req.params.job_id}, function(err) {
+        if (err)
+            res.send(err);
+        res.json({message: "Job Deleted!"});
+    });
 });
 
 module.exports = router;
