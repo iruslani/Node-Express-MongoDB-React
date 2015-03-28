@@ -1,4 +1,4 @@
-// Jobs Module
+// Jobs Routes Module
 var express = require('express');
 var router = express.Router();
 
