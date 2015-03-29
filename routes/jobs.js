@@ -1,6 +1,9 @@
 // Jobs Routes Module
 var express = require('express');
 var router = express.Router();
+var React = require('react/addons');
+
+var ReactApp = React.createFactory(require('../components/ReactJobs').ReactJobs);
 
 // middleware specific to this router
 router.use(function timeLog(req, res, next) {
@@ -8,14 +11,13 @@ router.use(function timeLog(req, res, next) {
   next();
 })
 
-// define the home page route
+// Define jobs route:
 router.get('/', function(req, res) {
-  res.send('job Listings');
+  var reactHtml = React.renderToString(ReactApp({}));
+  // Output html rendered by react
+  res.render('index.ejs' ,{reactOutput: reactHtml});
 })
-
-// define the about route
 router.get('/add', function(req, res) {
   res.send('Add a new job');
 })
-
 module.exports = router;
