@@ -1,12 +1,5 @@
 # Node-Express-MongoDB
-Simple app with Node.js Express.js and MongoDB utilizing rest API. 
-
-This app runs with:
-Node.js,
-Express.js,
-MongoDB,
-Mongoose,
-Body-Parser
+Simple app rest API with Node.js, Express.js and MongoDB.
 
 Require MongoDB installed on your machine. 
 
