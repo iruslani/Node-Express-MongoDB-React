@@ -1,25 +1,26 @@
 var express = require('express');
-var jobs = require('./routes/jobs');
-var api = require('./routes/api');
-var bodyParser = require('body-parser');
-var port = process.env.PORT || 3000;
-var router = express.Router();
+
 var app = express();
+// Make sure to include the JSX transpiler for React.js
+require("node-jsx").install();
 
 // Setup body parser:
-app.use(bodyParser.json());
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
 
-// Simple homepage.
-app.get('/', function(req, res) {
-  res.send('hello world');
-});
+// Setup public directory and ejs templating.
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-// Use routes:
-app.use('/jobs', jobs);
-app.use('/api', api);
+// Set up Routes for the application
+require('./routes/coreRoutes.js')(app);
 
+// Serve page on this port:
+var port = process.env.PORT || 3000;
 app.listen(port);
 console.log('App serving on port ' + port);
