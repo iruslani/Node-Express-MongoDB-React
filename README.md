@@ -1,12 +1,10 @@
 # Node-Express-MongoDB
 Simple example of rest API created with Node.js, Express.js and MongoDB with React.js on the Front End.
 
-Require <a href="https://nodejs.org/">Node.js</a> and <a href="https://www.mongodb.org/">MongoDB</a> installed on your machine. You will need Mongodb running on your local and postman to test API (GET POST PUT DELETE).
+Require <a href="https://nodejs.org/">Node.js</a> and <a href="https://www.mongodb.org/">MongoDB</a> installed on your machine.
 
-To start the app, go to the app directory.
-Type:
-npm install 
-(to install dependencies)
+Run your MongoDB: <strong>sudo mongod</strong>
 
-Then type this to run the app:
-node app.js
+Add dependencies: <strong>npm install </strong>
+
+Run the app: <strong>node app.js</strong> or <strong>nodemon app.js</strong> (if you have <a href="https://github.com/remy/nodemon">nodemon</a>)
