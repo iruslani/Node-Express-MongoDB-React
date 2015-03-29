@@ -1,7 +1,7 @@
 # Node-Express-MongoDB
 Simple example of rest API created with Node.js, Express.js and MongoDB.
 
-Require MongoDB installed on your machine. 
+Require <a href="">Node.js</a> and MongoDB installed on your machine. 
 
 To start the app, go to the app directory.
 Type:
