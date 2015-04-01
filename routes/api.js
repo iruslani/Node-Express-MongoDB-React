@@ -1,7 +1,8 @@
 // API Routes Module
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
+var Jobs = require('../schema/jobs');
+
 
 // middleware specific to this router
 router.use(function timeLog(req, res, next) {
@@ -9,31 +10,11 @@ router.use(function timeLog(req, res, next) {
   next();
 })
 
-// Connect to DB:
-mongoose.connect('mongodb://localhost/jobs2');
-
-// Build schema:
-var Schema = mongoose.Schema;
-var JobSchema = new Schema({
-	title: String,
-	description: String,
-	company: String
-});
-var Jobs = mongoose.model('Jobs', JobSchema);
-
-// Add initial data:
-/*var jobsInit = new Jobs({
-	job: 'Full-Stack Web Developer',
-	description: 'Need a developer to create app using restfull API',
-	company: 'MassDrop'
-});
-jobsInit.save();*/
-
 // GET Request
 router.get('/jobs', function(req, res){
   Jobs.find(function(err, docs) {
   	docs.forEach(function(item){
-  		console.log('Received a GET request for _id ' + item._id + ' job: ' + item.job);
+  		console.log('Received a GET request for _id ' + item._id + ' job: ' + item.title);
   	});
   	res.send(docs);
   })
