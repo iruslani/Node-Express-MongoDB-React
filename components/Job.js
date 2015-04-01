@@ -10,13 +10,13 @@ var Job = React.createClass({
           <div >
             <div >
               <div >
-                <h4>{this.props.title}</h4>    
+                <h4>Title: {this.props.name}</h4>    
               </div>
               <div >
-              <p>Link: <a href="" target="_blank">Click to see more</a></p>
               <p>Company: {this.props.company}</p>
-                {this.props.description}
-              </div>   
+                Description: {this.props.description}
+              </div> 
+              <p>Link: <a href={'api/jobs/delete/'+ this.props.id} target="_blank">Delete</a></p>  
             </div>
           </div>
         </div>
